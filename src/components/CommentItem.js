@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import LazyLoad from "react-lazyload";
-import Button from "../components/Button";
+import Button from "./Button";
 import { deleteComment } from "../store/actions";
 import { useDispatch } from "react-redux";
 
@@ -36,7 +36,8 @@ const Title = styled.h2`
 const DetailsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   padding: 1.5rem 3rem;
 
   @media ${(props) => props.theme.mediaQueries.smaller} {
@@ -57,6 +58,8 @@ const Text = styled.p`
   color: var(--link-color);
   font-weight: 500;
   margin-bottom: 3rem;
+  word-wrap: break-word;
+  width: 70rem;
 `;
 
 const ButtonsWrapper = styled.div`

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import history from "../history";
@@ -12,11 +12,11 @@ import NotFound from "../components/NotFound";
 import Header from "../components/Header";
 // import Cast from "../components/Cast";
 import Loader from "../components/Loader";
-import PostsList from "../components/PostList";
 import Button from "../components/Button";
 import NothingSvg from "../svg/nothing.svg";
 import BlogImage from "../svg/blogImage.svg";
 import Loading from "../components/Loading";
+import CommentList from "../components/CommentList";
 
 const Wrapper = styled.div`
   display: flex;
@@ -218,8 +218,8 @@ function PostComment() {
   const [error, setError] = useState(false);
   const { id } = useParams();
   const blogPost = useSelector((state) => state.posts?.blogPosts[id - 1]);
+  let history = useHistory();
 
-  console.log("%c⧭", "color: #00e600", blogPost);
   const { comments, loading, user } = postComments;
 
   // Fetch Post id when id on the url changes
@@ -235,6 +235,14 @@ function PostComment() {
     };
   }, [dispatch, id]);
 
+  //Render the back button if user was pushed into page
+  function renderBack() {
+    return (
+      <div onClick={() => history.push("/")}>
+        <Button title="Back" solid left icon="arrow-left" />
+      </div>
+    );
+  }
   // If loading
   if (loading) {
     return <Loader />;
@@ -301,17 +309,6 @@ function PostComment() {
   );
 }
 
-//Render the back button if user was pushed into page
-function renderBack() {
-  if (history.action === "PUSH") {
-    return (
-      <div onClick={history.goBack}>
-        <Button title="Back" solid left icon="arrow-left" />
-      </div>
-    );
-  }
-}
-
 // // Render Personal Website button
 function renderWebsite(link) {
   if (!link) {
@@ -331,7 +328,7 @@ function renderComments(comments) {
   } else {
     return (
       <Element name="scroll-to-element">
-        <PostsList posts={comments} />;
+        <CommentList comments={comments} />;
       </Element>
     );
   }
