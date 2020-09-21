@@ -5,6 +5,7 @@ import { animateScroll as scroll } from "react-scroll";
 import { getPosts, clearPosts } from "../store/actions";
 
 import Loader from "../components/Loader";
+import Header from "../components/Header";
 import PostList from "../components/PostList";
 
 const Wrapper = styled.div`
@@ -34,6 +35,7 @@ function PostContainer() {
   // Else return movies list
   return (
     <Wrapper>
+      <Header title="Assignmnent" subtitle="Incubex" />
       <PostList posts={posts.blogPosts}></PostList>
     </Wrapper>
   );

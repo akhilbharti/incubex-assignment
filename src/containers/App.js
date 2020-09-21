@@ -27,6 +27,7 @@ import Loader from "../components/Loader";
 import Posts from "./Posts";
 import PostComment from "./PostComment";
 import ShowError from "./ShowError";
+import Logo from "../components/Logo";
 
 library.add(
   fab,
@@ -74,6 +75,17 @@ const ContentWrapper = styled.div`
     padding: 4rem 2rem;
   }
 `;
+const SearhBarWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  width: 12rem;
+  padding: 1rem;
+  color: var(--color-primary-dark);
+  border-right: 1px solid var(--border-color);
+`;
 function App() {
   const [isMobile, setisMobile] = useState(null);
 
@@ -98,16 +110,11 @@ function App() {
     <Router history={history}>
       <React.Fragment>
         <MainWrapper isMobile={isMobile}>
-          {/* {isMobile ? (
-            <MenuMobile />
-          ) : (
-            <>
-              <Sidebar />
-              <SearhBarWrapper>
-                <SearchBar />
-              </SearhBarWrapper>
-            </>
-          )} */}
+          <>
+            <SearhBarWrapper>
+              <Logo />
+            </SearhBarWrapper>
+          </>
           <ContentWrapper>
             <Switch>
               <Route
