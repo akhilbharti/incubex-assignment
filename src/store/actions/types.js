@@ -1,0 +1,36 @@
+// TYPES AS CONST SO ITS EASIER TO SPOT ERRORS
+
+// Fetching POSTS
+
+export const FETCH_USER = "FETCH_USER";
+export const FETCH_POSTS = "FETCH_POSTS";
+// LOADINGS
+// geral loading
+export const SET_LOADING = "SET_LOADING";
+export const REMOVE_LOADING = "REMOVE_LOADING";
+
+// Single Post loading
+export const FETCH_POST = "FETCH_POST";
+export const FETCH_POST_LOADING = "FETCH_POST_LOADING";
+export const FETCH_POST_FINISHED = "FETCH_POST_FINISHED";
+//post loading
+export const FETCH_POSTS_LOADING = "FETCH_POSTS_LOADING";
+export const FETCH_POSTS_FINISHED = "FETCH_POSTS_FINISHED";
+
+// single post comments loading
+
+export const FETCH_POST_COMMENTS_LOADING = "FETCH_POST_COMMENTS_LOADING";
+export const FETCH_POST_COMMENTS_FINISHED = "FETCH_POST_COMMENTS_FINISHED";
+
+//Errors
+export const INSERT_ERROR = "INSERT_ERROR";
+export const CLEAR_ERROR = "CLEAR_ERROR";
+
+//Remove Comments
+export const REMOVE_COMMENT = "REMOVE_COMMENT";
+export const REMOVE_POST_COMMENTS_LOADING = "REMOVE_POST_COMMENTS_LOADING";
+export const REMOVE_POST_COMMENTS_FINISHED = "REMOVE_POST_COMMENTS_FINISHED";
+
+//EDIT Comments
+export const EDIT_COMMENT = "EDIT_COMMENT";
+export const ADD_COMMENT = "ADD_COMMENT";
