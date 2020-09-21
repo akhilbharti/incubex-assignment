@@ -20,7 +20,7 @@ function PostContainer() {
   const posts = useSelector((state) => state.posts);
   // Send url to setSelected Action Creator, it will check if is valid
 
-  // Call hook to fetch movies discover, pass in the url query
+  // Call hook to fetch posts discover, pass in the url query
   useEffect(() => {
     scroll.scrollToTop({
       smooth: true,
@@ -32,7 +32,7 @@ function PostContainer() {
     return <Loader />;
   }
 
-  // Else return movies list
+  // Else return posts list
   return (
     <Wrapper>
       <Header title="Assignmnent" subtitle="Incubex" />

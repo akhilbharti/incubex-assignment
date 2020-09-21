@@ -37,13 +37,13 @@ const Error = styled.div`
   font-size: 1.2rem;
 `;
 
-const Input = ({ field, ...props }) => {
+const Input = ({ field, form: { touched, errors }, ...props }) => {
   return (
     <InputWrapper>
       <StyledInput {...field} {...props} />
-      {/* <Error show={errors[field.name] && touched[field.name]}>
+      <Error show={errors[field.name] && touched[field.name]}>
         {errors[field.name]}
-      </Error> */}
+      </Error>
     </InputWrapper>
   );
 };

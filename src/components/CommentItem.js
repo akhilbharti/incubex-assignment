@@ -89,8 +89,8 @@ const LeftButtons = styled.div`
   }
 `;
 
-// Function to render list of movies
-function PostItem({ comment }) {
+// Function to render list of comment
+function CommentItem({ comment }) {
   const [isEditing, setIsEditing] = useState(false);
   const dispatch = useDispatch();
 
@@ -128,4 +128,4 @@ function PostItem({ comment }) {
   );
 }
 
-export default React.memo(PostItem);
+export default React.memo(CommentItem);

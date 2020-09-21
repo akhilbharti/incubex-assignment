@@ -9,7 +9,7 @@ import EmptySvg from "../svg/empty.svg";
 // import Rating from "../components/Rating";
 // import Loading from "../components/Loading";
 
-const MovieWrapper = styled(Link)`
+const PostWrapper = styled(Link)`
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -46,7 +46,7 @@ const MovieWrapper = styled(Link)`
   }
 `;
 
-const MovieImg = styled.img`
+const PostImg = styled.img`
   width: 100%;
   height: 38rem;
   object-fit: contain;
@@ -54,7 +54,7 @@ const MovieImg = styled.img`
   box-shadow: 0rem 2rem 5rem var(--shadow-color);
   transition: all 100ms cubic-bezier(0.645, 0.045, 0.355, 1);
 
-  ${MovieWrapper}:hover & {
+  ${PostWrapper}:hover & {
     border-radius: 0.8rem 0.8rem 0rem 0rem;
     box-shadow: none;
   }
@@ -85,7 +85,7 @@ const Title = styled.h2`
   line-height: 1.4;
   transition: color 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
 
-  ${MovieWrapper}:hover & {
+  ${PostWrapper}:hover & {
     color: var(--text-color);
   }
 `;
@@ -102,8 +102,8 @@ const DetailsWrapper = styled.div`
   }
 `;
 
-// Function to render list of movies
-const MovieItem = ({ post }) => {
+// Function to render list of Posts
+const PostItem = ({ post }) => {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
 
@@ -113,9 +113,9 @@ const MovieItem = ({ post }) => {
 
   return (
     <LazyLoad height={200} offset={200}>
-      <MovieWrapper to={`${process.env.PUBLIC_URL}/posts/${post.id}`}>
+      <PostWrapper to={`${process.env.PUBLIC_URL}/posts/${post.id}`}>
         <ImgLoading>
-          <MovieImg
+          <PostImg
             error={error ? 1 : 0}
             onLoad={() => setLoaded(true)}
             style={!loaded ? { display: "none" } : {}}
@@ -134,9 +134,9 @@ const MovieItem = ({ post }) => {
         <DetailsWrapper>
           <Title>{post.title}</Title>
         </DetailsWrapper>
-      </MovieWrapper>
+      </PostWrapper>
     </LazyLoad>
   );
 };
 
-export default React.memo(MovieItem);
+export default React.memo(PostItem);

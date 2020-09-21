@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import history from "../history";
 import LazyLoad from "react-lazyload";
 import { Element, animateScroll as scroll } from "react-scroll";
 
@@ -303,7 +302,7 @@ function PostComment() {
           </PostDetails>
         </PostWrapper>
       </LazyLoad>
-      <Header title="Comments" subtitle="movies" />
+      <Header title="Comments" subtitle="blogs" />
       {renderComments(comments)}
     </Wrapper>
   );
@@ -321,7 +320,7 @@ function renderWebsite(link) {
   );
 }
 
-// Render recommended movies
+// Render recommended comments
 function renderComments(comments) {
   if (comments.length === 0) {
     return <NotFound title="Sorry!" subtitle={`There are no comments...`} />;
